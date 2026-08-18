@@ -1,8 +1,13 @@
 function T = transmissionTerm(alpha,dz)
+    % if iscolumn(dz)
+    %     dz = dz';
+    %     alpha = alpha';
+    % end
+
     T = NaN(size(alpha));
     cols = size(alpha,2);
 
-    dz = dz';
+    % dz = dz';
     id = dz>=0;
 
     for i = 1:cols

@@ -1,5 +1,5 @@
 function O = overlapFunc(z,laser_beamwaist, laser_divergence, aperture_radius, obstruction_radius, telescope_radius, telescope_focus, za, delta, prof_type)
-    O = NaN(1,length(z));
+    O = NaN(length(z),1);
 
     for i = 1:length(z)
         z_current = z(i);
