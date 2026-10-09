@@ -1,4 +1,4 @@
-function [N,K,G,B,T] = signal(alt,lam,E0,A,tau,eta,etaQ,Nair,co3,No3,O)
+function [N,K,G,B,T] = signal(alt,lam,E0,A,tau,eta,etaQ,Nair,co3,No3,O,gate_alt)
     n_prof = size(No3,2);
 
     h = planckConstant;                         % J*s
@@ -27,4 +27,5 @@ function [N,K,G,B,T] = signal(alt,lam,E0,A,tau,eta,etaQ,Nair,co3,No3,O)
     G = repmat(G,1,size(No3,2));                                   % 1 / m^2
 
     N = K .* G .* B .* T;                                           % m^3 / m^2 / m / sr = m * m^2 /m^2 / m / sr = m * sr / m / sr = 1          Number of photons received in range bin defined by speed of light and time tau
+    N(alt<gate_alt) = NaN;
 end
